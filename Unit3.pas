@@ -20,6 +20,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
   private
     { Private declarations }
   public
@@ -32,7 +33,7 @@ var
 
 implementation
 
-uses Unit4, Unit1, Unit2, Unit8;
+uses Unit4, Unit1, Unit2, Unit8, Unit5;
 
 {$R *.dfm}
 
@@ -50,27 +51,39 @@ end;
 
 procedure TForm3.Button2Click(Sender: TObject);
 begin
-  DataModule8.Zkategori.SQL.Clear;
-  DataModule8.Zkategori.SQL.Add('update kategori set name="'+Edit1.Text+'" where id= '+a);
-  DataModule8.Zkategori.ExecSQL;
+  with DataModule8.ZKategori do
+  begin
+   SQL.Clear;
+   SQL.Add('update kategori set name="'+Edit1.text+'" where id= "'+a+'"');
+   ExecSQL;
 
-  DataModule8.Zkategori.SQL.Clear;
-  DataModule8.Zkategori.SQL.Add('select * from kategori');
-  DataModule8.Zkategori.Open;
+   SQL.Clear;
+   SQL.Add('select * from kategori');
+   Open;
+  end;
   ShowMessage('Data Berhasil Diupdate!');
 end;
 
 procedure TForm3.Button3Click(Sender: TObject);
 begin
-  DataModule8.Zkategori.SQL.Clear;
-  DataModule8.Zkategori.SQL.Add('delete from kategori where id= '+a);
-  DataModule8.Zkategori.ExecSQL;
+  with DataModule8.ZKategori do
+  begin
+    SQL.Clear;
+    SQL.Add('delete from kategori where id= "'+a+'"');
+    ExecSQL;
 
-  DataModule8.Zkategori.SQL.Clear;
-  DataModule8.Zkategori.SQL.Add('select * from kategori');
-  DataModule8.Zkategori.Open;
-  ShowMessage('Data Berhasil Didelete!');
+    SQL.Clear;
+    SQL.Add('select * from kategori');
+    Open
+  end;
+  ShowMessage('Data Berhasil DiDelete!');
 end;
 
+
+procedure TForm3.DBGrid1CellClick(Column: TColumn);
+begin
+Edit1.Text:= DataModule8.ZKategori.Fields[1].AsString;
+a:= DataModule8.ZKategori.Fields[0].AsString;
+end;
 
 end.

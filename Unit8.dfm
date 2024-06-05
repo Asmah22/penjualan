@@ -13,7 +13,7 @@ object DataModule8: TDataModule8
     Database = 'db_penjualan'
     User = 'root'
     Protocol = 'mysql'
-    LibraryLocation = 'C:\Users\user\Desktop\VISUAL2\libmysql.dll'
+    LibraryLocation = 'C:\Users\user\Videos\penjualan\libmysql.dll'
     Left = 24
     Top = 24
   end

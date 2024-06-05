@@ -1,6 +1,6 @@
 object Form7: TForm7
-  Left = 483
-  Top = 144
+  Left = 226
+  Top = 141
   Width = 599
   Height = 421
   Caption = 'KUSTOMER'
@@ -17,7 +17,7 @@ object Form7: TForm7
     Left = 48
     Top = 40
     Width = 33
-    Height = 17
+    Height = 16
     Caption = 'NAME'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

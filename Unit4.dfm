@@ -1,6 +1,6 @@
 object Form4: TForm4
-  Left = 523
-  Top = 156
+  Left = 186
+  Top = 141
   Width = 557
   Height = 479
   Caption = 'BARANG'

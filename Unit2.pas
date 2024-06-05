@@ -22,7 +22,7 @@ var
 
 implementation
 
-uses Unit1, Unit3, Unit4;
+uses Unit1, Unit3, Unit4, Unit5, Unit6, Unit7, Unit8;
 
 {$R *.dfm}
 
